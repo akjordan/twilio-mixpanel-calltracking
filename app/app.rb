@@ -25,6 +25,7 @@ end
 
 get_or_post("/callback") do
 
+#Here is where you tie Mixpanel and Twilio together loading Twilio POST paramaters as data points
   if params['CallSid'] != ''
     tracker.track(params['CallSid'], 'Incoming Call', { 'AccountSid' => params['AccountSid'], 'From' => params['From'], 'To' => params['To'],
       'CallStatus' => params['CallStatus'], 'ApiVersion' => params['ApiVersion'], 'Direction' => params['Direction'], 
